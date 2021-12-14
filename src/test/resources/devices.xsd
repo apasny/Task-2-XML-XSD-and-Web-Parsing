@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="devices"
+        xmlns:tns="devices"
+        elementFormDefault="qualified">
+    <element name="devices">
+        <complexType>
+            <sequence>
+                <element name="device" type="tns:Device" minOccurs="0" maxOccurs="100"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Device">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="price" type="double"/>
+            <element name="cpu" minOccurs="0" type="tns:CPU"></element>
+            <element name="graphics" minOccurs="0" type="tns:GraphicsCard "></element>
+        </sequence>
+        <attribute name="manufacturer">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="Intel"></enumeration>
+                    <enumeration value="AMD"></enumeration>
+                    <enumeration value="Nvidia"></enumeration>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="CPU">
+        <sequence>
+            <element name="coresQuantity" type="positiveInteger"/>
+            <element name="frequency" type="double"/>
+            <element name="cache" type="positiveInteger"/>
+            <element name="details" type="tns:Details"/>
+        </sequence>
+    </complexType>
+    <complexType name="GraphicsCard ">
+        <sequence>
+            <element name="graphicMemory" type="positiveInteger"/>
+            <element name="memoryBus" type="positiveInteger"/>
+            <element name="bandwidth" type="positiveInteger"/>
+            <element name="details" type="tns:Details"/>
+        </sequence>
+    </complexType>
+    <complexType name="Details">
+        <sequence>
+            <element name="serialNumber" type="string"/>
+            <element name="deviceID" type="string"/>
+            <element name="releaseDate" type="positiveInteger"/>
+        </sequence>
+    </complexType>
+</schema>
