@@ -1,4 +1,8 @@
-package data;
+package parser;
+
+import parser.dom.DeviceDomParser;
+import parser.jaxb.DeviceJaxbParser;
+import parser.sax.DeviceSaxParser;
 
 public class ParserFactory {
 

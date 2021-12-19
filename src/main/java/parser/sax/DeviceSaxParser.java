@@ -1,8 +1,10 @@
-package data;
+package parser.sax;
 
 import entity.Device;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
+import parser.DeviceErrorHandler;
+import parser.Parser;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -12,7 +14,8 @@ import java.util.List;
 
 public class DeviceSaxParser implements Parser {
 
-    private final DeviceHandler deviceHandler = new DeviceHandler();
+    private final DeviceSaxHandler deviceSaxHandler = new DeviceSaxHandler();
+    private final DeviceErrorHandler deviceErrorHandler = new DeviceErrorHandler();
     private XMLReader xmlReader;
 
     public DeviceSaxParser() {
@@ -23,7 +26,8 @@ public class DeviceSaxParser implements Parser {
         } catch (ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         }
-        xmlReader.setContentHandler(deviceHandler);
+        xmlReader.setContentHandler(deviceSaxHandler);
+        xmlReader.setErrorHandler(deviceErrorHandler);
     }
 
     public List<Device> parse(String filename) {
@@ -32,7 +36,7 @@ public class DeviceSaxParser implements Parser {
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
-        return deviceHandler.getDevices();
+        return deviceSaxHandler.getDevices();
     }
 
 }

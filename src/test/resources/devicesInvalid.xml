@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/devices"
+         xsi:schemaLocation ="http://www.example.com/devices devices.xsd">
+    <cpu id="ID123">
+        <name>i5</name
+        <price>194</price>
+        <manufacturer>Intel</manufacturer>
+        <coresQuantity>6</coresQuantity>
+        <frequency>4.2</frequency>
+        <cache>32</cache>
+        <details>
+            <serialNumber>23145waddwa68746aw1</serialNumber>
+            <deviceID>132w77-wda42aw-awd251</deviceID>
+            <releaseDate>2019</releaseDate>
+        </details>
+    </cpu>
+    <graphicsCard id="ID44">
+        <name>rtx 2060</name>
+        <price>652</price>
+        <manufacturer>Nvidia</manufacturer>
+        <graphicMemory>12</graphicMemory>
+        <memoryBus>192</memoryBus>
+        <bandwidth>306</bandwidth>
+        <details>
+            <serialNumber>f65q41fq</serialNumber>
+            <deviceID>dq6-fqwf1-qw55</deviceID>
+            <releaseDate>2018</releaseDate>
+        </details>
+    </graphicsCard>
+</devices>

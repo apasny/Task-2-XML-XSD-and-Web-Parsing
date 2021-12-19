@@ -2,6 +2,7 @@ package entity;
 
 public enum DeviceXmlTag {
 
+    ID("id"),
     NAME("name"),
     PRICE("price"),
     MANUFACTURER("manufacturer"),

@@ -1,4 +1,4 @@
-package data;
+package parser;
 
 import entity.Device;
 import java.util.List;

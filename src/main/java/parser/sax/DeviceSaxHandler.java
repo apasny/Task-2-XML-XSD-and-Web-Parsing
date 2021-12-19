@@ -1,7 +1,6 @@
-package data;
+package parser.sax;
 
 import entity.*;
-import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class DeviceHandler extends DefaultHandler {
+public class DeviceSaxHandler extends DefaultHandler {
 
     private final String elementCpu = "cpu";
     private final String elementGraphicsCard = "graphicsCard";
