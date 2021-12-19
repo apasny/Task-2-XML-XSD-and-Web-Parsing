@@ -1,0 +1,76 @@
+package entity;
+
+import java.util.Objects;
+
+public abstract class Device {
+
+    private String id;
+    private String name;
+    private double price;
+    private String manufacturer;
+    private Details details;
+
+    public Device() {
+    }
+
+    public Device(String id, String name, double price, String manufacturer, Details details) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.manufacturer = manufacturer;
+        this.details = details;
+    }
+
+    public Details getDetails() {
+        return details;
+    }
+
+    public void setDetails(Details details) {
+        this.details = details;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Device device = (Device) o;
+        return Double.compare(device.price, price) == 0 && Objects.equals(id, device.id) && Objects.equals(name, device.name) && Objects.equals(manufacturer, device.manufacturer) && Objects.equals(details, device.details);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, manufacturer, details);
+    }
+}

@@ -1,31 +1,31 @@
-<dev:devices xmlns:dev="devices">
-  <!--0 to 100 repetitions:-->
-  <dev:device manufacturer="Intel">
-    <dev:name>CPU</dev:name>
-    <dev:price>135.54</dev:price>
-    <dev:cpu>
-      <dev:coresQuantity>2</dev:coresQuantity>
-      <dev:frequency>23.2</dev:frequency>
-      <dev:cache>32</dev:cache>
-      <dev:details>
-        <dev:serialNumber>131564dawd83</dev:serialNumber>
-        <dev:deviceID>1321-46841-awdaw7</dev:deviceID>
-        <dev:releaseDate>2016</dev:releaseDate>
-      </dev:details>
-    </dev:cpu>
-  </dev:device>
-  <dev:device manufacturer="Nvidia">
-    <dev:name>GPU</dev:name>
-    <dev:price>336</dev:price>
-    <dev:graphics>
-      <dev:graphicMemory>12</dev:graphicMemory>
-      <dev:memoryBus>192</dev:memoryBus>
-      <dev:bandwidth>306</dev:bandwidth>
-      <dev:details>
-        <dev:serialNumber>da1wd6awd61a</dev:serialNumber>
-        <dev:deviceID>123123d</dev:deviceID>
-        <dev:releaseDate>2019</dev:releaseDate>
-      </dev:details>
-    </dev:graphics>
-  </dev:device>
-</dev:devices>
+<?xml version="1.0" encoding="utf-8"?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/devices"
+         xsi:schemaLocation ="http://www.example.com/devices devices.xsd">
+    <cpu id="ID123">
+        <name>i5</name>
+        <price>194</price>
+        <manufacturer>Intel</manufacturer>
+        <coresQuantity>6</coresQuantity>
+        <frequency>4.2</frequency>
+        <cache>32</cache>
+        <details>
+            <serialNumber>23145waddwa68746aw1</serialNumber>
+            <deviceID>132w77-wda42aw-awd251</deviceID>
+            <releaseDate>2019</releaseDate>
+        </details>
+    </cpu>
+    <graphicsCard id="ID44">
+        <name>rtx 2060</name>
+        <price>652</price>
+        <manufacturer>Nvidia</manufacturer>
+        <graphicMemory>12</graphicMemory>
+        <memoryBus>192</memoryBus>
+        <bandwidth>306</bandwidth>
+        <details>
+            <serialNumber>f65q41fq</serialNumber>
+            <deviceID>dq6-fqwf1-qw55</deviceID>
+            <releaseDate>2018</releaseDate>
+        </details>
+    </graphicsCard>
+</devices>

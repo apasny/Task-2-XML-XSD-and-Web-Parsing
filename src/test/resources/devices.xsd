@@ -1,48 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="devices"
-        xmlns:tns="devices"
+        targetNamespace="http://www.example.com/devices"
+        xmlns:tns="http://www.example.com/devices"
         elementFormDefault="qualified">
+
+    <element name="device" type="tns:AbstractDevice" abstract="true"/>
+    <element name="graphicsCard" type="tns:GraphicsCard " substitutionGroup="tns:device"/>
+    <element name="cpu" type="tns:CPU" substitutionGroup="tns:device"/>
+
     <element name="devices">
         <complexType>
             <sequence>
-                <element name="device" type="tns:Device" minOccurs="0" maxOccurs="100"/>
+                <element ref="tns:device" maxOccurs="100"/>
             </sequence>
         </complexType>
     </element>
-    <complexType name="Device">
+
+    <complexType name="AbstractDevice">
         <sequence>
             <element name="name" type="string"/>
             <element name="price" type="double"/>
-            <element name="cpu" minOccurs="0" type="tns:CPU"></element>
-            <element name="graphics" minOccurs="0" type="tns:GraphicsCard "></element>
+            <element name="manufacturer" type="string"/>
         </sequence>
-        <attribute name="manufacturer">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="Intel"></enumeration>
-                    <enumeration value="AMD"></enumeration>
-                    <enumeration value="Nvidia"></enumeration>
-                </restriction>
-            </simpleType>
-        </attribute>
+        <attribute name="id" type="ID" use="required"/>
     </complexType>
+
     <complexType name="CPU">
-        <sequence>
-            <element name="coresQuantity" type="positiveInteger"/>
-            <element name="frequency" type="double"/>
-            <element name="cache" type="positiveInteger"/>
-            <element name="details" type="tns:Details"/>
-        </sequence>
+        <complexContent>
+            <extension base="tns:AbstractDevice">
+                <sequence>
+                    <element name="coresQuantity" type="positiveInteger"/>
+                    <element name="frequency" type="double"/>
+                    <element name="cache" type="positiveInteger"/>
+                    <element name="details" type="tns:Details"/>
+                </sequence>
+            </extension>
+        </complexContent>
     </complexType>
+
     <complexType name="GraphicsCard ">
-        <sequence>
-            <element name="graphicMemory" type="positiveInteger"/>
-            <element name="memoryBus" type="positiveInteger"/>
-            <element name="bandwidth" type="positiveInteger"/>
-            <element name="details" type="tns:Details"/>
-        </sequence>
+        <complexContent>
+            <extension base="tns:AbstractDevice">
+                <sequence>
+                    <element name="graphicMemory" type="positiveInteger"/>
+                    <element name="memoryBus" type="positiveInteger"/>
+                    <element name="bandwidth" type="positiveInteger"/>
+                    <element name="details" type="tns:Details"/>
+                </sequence>
+            </extension>
+        </complexContent>
     </complexType>
+
     <complexType name="Details">
         <sequence>
             <element name="serialNumber" type="string"/>
@@ -50,4 +58,5 @@
             <element name="releaseDate" type="positiveInteger"/>
         </sequence>
     </complexType>
+
 </schema>
