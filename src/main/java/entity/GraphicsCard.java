@@ -1,7 +1,9 @@
 package entity;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlType(name = "graphicsCard")
 public class GraphicsCard extends Device {
 
     private int graphicMemory;
@@ -19,6 +21,7 @@ public class GraphicsCard extends Device {
         this.bandwidth = bandwidth;
     }
 
+    @XmlElement(name = "graphicMemory")
     public int getGraphicMemory() {
         return graphicMemory;
     }
@@ -27,6 +30,7 @@ public class GraphicsCard extends Device {
         this.graphicMemory = graphicMemory;
     }
 
+    @XmlElement(name = "memoryBus")
     public int getGraphicMemoryBus() {
         return graphicMemoryBus;
     }
@@ -35,6 +39,7 @@ public class GraphicsCard extends Device {
         this.graphicMemoryBus = graphicMemoryBus;
     }
 
+    @XmlElement(name = "bandwidth")
     public int getBandwidth() {
         return bandwidth;
     }

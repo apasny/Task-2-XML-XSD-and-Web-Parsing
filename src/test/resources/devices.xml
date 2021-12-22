@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://www.example.com/devices"
-         xsi:schemaLocation ="http://www.example.com/devices devices.xsd">
+<devices xmlns="http://www.example.com/devices"
+         xsi:schemaLocation="http://www.example.com/devices devices.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cpu id="ID123">
         <name>i5</name>
         <price>194</price>

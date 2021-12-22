@@ -4,15 +4,12 @@
         xmlns:tns="http://www.example.com/devices"
         elementFormDefault="qualified">
 
-    <element name="device" type="tns:AbstractDevice" abstract="true"/>
-    <element name="graphicsCard" type="tns:GraphicsCard " substitutionGroup="tns:device"/>
-    <element name="cpu" type="tns:CPU" substitutionGroup="tns:device"/>
-
     <element name="devices">
         <complexType>
-            <sequence>
-                <element ref="tns:device" maxOccurs="100"/>
-            </sequence>
+            <choice maxOccurs="unbounded">
+                <element name="graphicsCard" type="tns:GraphicsCard" />
+                <element name="cpu" type="tns:CPU" />
+            </choice>
         </complexType>
     </element>
 
@@ -38,7 +35,7 @@
         </complexContent>
     </complexType>
 
-    <complexType name="GraphicsCard ">
+    <complexType name="GraphicsCard">
         <complexContent>
             <extension base="tns:AbstractDevice">
                 <sequence>

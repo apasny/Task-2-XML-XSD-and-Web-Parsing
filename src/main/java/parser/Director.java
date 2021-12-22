@@ -1,8 +1,6 @@
-package data;
+package parser;
 
 import entity.Device;
-import parser.Parser;
-import parser.XmlValidator;
 
 import java.util.List;
 

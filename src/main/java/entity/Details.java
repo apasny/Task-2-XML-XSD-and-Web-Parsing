@@ -1,7 +1,10 @@
 package entity;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlType(name = "details")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Details {
 
     private String serialNumber;

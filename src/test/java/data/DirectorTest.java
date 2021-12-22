@@ -7,10 +7,7 @@ import entity.GraphicsCard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.xml.sax.SAXParseException;
-import parser.Parser;
-import parser.ParserFactory;
-import parser.ParserType;
-import parser.XmlValidator;
+import parser.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -56,6 +53,19 @@ public class DirectorTest {
     public void testParseDomParserShouldReturnTrue() {
 
         Parser parser = new ParserFactory().create(ParserType.DOM);
+        XmlValidator xmlValidator = new XmlValidator();
+        Director director = new Director(parser, xmlValidator);
+
+        List<Device> result = director.parse(validFilePath);
+
+        Assertions.assertEquals(expected, result);
+
+    }
+
+    @Test
+    public void testParseJaxbParserShouldReturnTrue() {
+
+        Parser parser = new ParserFactory().create(ParserType.JAXB);
         XmlValidator xmlValidator = new XmlValidator();
         Director director = new Director(parser, xmlValidator);
 

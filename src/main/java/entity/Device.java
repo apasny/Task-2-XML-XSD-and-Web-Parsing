@@ -1,8 +1,10 @@
 package entity;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
-public abstract class Device {
+@XmlSeeAlso({Cpu.class, GraphicsCard.class})
+public class Device {
 
     private String id;
     private String name;
@@ -21,6 +23,7 @@ public abstract class Device {
         this.details = details;
     }
 
+    @XmlElement(name = "details")
     public Details getDetails() {
         return details;
     }
@@ -29,6 +32,7 @@ public abstract class Device {
         this.details = details;
     }
 
+    @XmlAttribute(name = "id")
     public String getId() {
         return id;
     }
@@ -37,6 +41,7 @@ public abstract class Device {
         this.id = id;
     }
 
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
@@ -45,6 +50,7 @@ public abstract class Device {
         this.name = name;
     }
 
+    @XmlElement(name = "price")
     public double getPrice() {
         return price;
     }
@@ -53,6 +59,7 @@ public abstract class Device {
         this.price = price;
     }
 
+    @XmlElement(name = "manufacturer")
     public String getManufacturer() {
         return manufacturer;
     }

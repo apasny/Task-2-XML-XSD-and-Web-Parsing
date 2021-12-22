@@ -1,16 +1,19 @@
 package entity;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlType(name = "cpu")
 public class Cpu extends Device {
 
     private int coresQuantity;
     private double frequency;
     private int cache;
 
-    public Cpu(){
+    public Cpu() {
 
     }
+
     public Cpu(String id, String name, double price, String manufacturer, int coresQuantity, double frequency, int cache, Details details) {
         super(id, name, price, manufacturer, details);
         this.coresQuantity = coresQuantity;
@@ -18,6 +21,7 @@ public class Cpu extends Device {
         this.cache = cache;
     }
 
+    @XmlElement(name = "coresQuantity")
     public int getCoresQuantity() {
         return coresQuantity;
     }
@@ -26,6 +30,7 @@ public class Cpu extends Device {
         this.coresQuantity = coresQuantity;
     }
 
+    @XmlElement(name = "frequency")
     public double getFrequency() {
         return frequency;
     }
@@ -34,6 +39,7 @@ public class Cpu extends Device {
         this.frequency = frequency;
     }
 
+    @XmlElement(name = "cache")
     public int getCache() {
         return cache;
     }
