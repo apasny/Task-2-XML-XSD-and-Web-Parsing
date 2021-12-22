@@ -57,4 +57,13 @@ public class Details {
     public int hashCode() {
         return Objects.hash(serialNumber, deviceId, releaseDate);
     }
+
+    @Override
+    public String toString() {
+        return "Details{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                ", releaseDate=" + releaseDate +
+                '}';
+    }
 }

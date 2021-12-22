@@ -1,9 +1,7 @@
 package parser.jaxb;
 
-import entity.Cpu;
 import entity.Device;
 import entity.Devices;
-import entity.GraphicsCard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,14 +24,14 @@ public class DeviceJaxbHandler {
 
         try {
 
-            JAXBContext jaxbContext = JAXBContext.newInstance(Devices.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            JAXBContext context = JAXBContext.newInstance(Devices.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            Devices devicesList = (Devices) jaxbUnmarshaller.unmarshal(xmlSource);
+            Devices devicesList = (Devices) unmarshaller.unmarshal(xmlSource);
 
             devices = devicesList.getListOfDevices();
 
-            LOGGER.info(devices);
+            LOGGER.info(devices.get(0).toString());
 
         } catch (JAXBException e) {
             e.printStackTrace();

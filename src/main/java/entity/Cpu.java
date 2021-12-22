@@ -61,4 +61,13 @@ public class Cpu extends Device {
     public int hashCode() {
         return Objects.hash(super.hashCode(), coresQuantity, frequency, cache);
     }
+
+    @Override
+    public String toString() {
+        return "Cpu{" +
+                "coresQuantity=" + coresQuantity +
+                ", frequency=" + frequency +
+                ", cache=" + cache +
+                '}';
+    }
 }

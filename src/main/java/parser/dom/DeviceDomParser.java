@@ -17,17 +17,16 @@ public class DeviceDomParser implements Parser {
     private DocumentBuilder documentBuilder;
     private Document document;
 
-    public DeviceDomParser() {
+    @Override
+    public List<Device> parse(String file) {
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
         try {
             documentBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException exception) {
             exception.printStackTrace();
         }
-    }
-
-    @Override
-    public List<Device> parse(String file) {
 
         try {
             document = documentBuilder.parse(file);

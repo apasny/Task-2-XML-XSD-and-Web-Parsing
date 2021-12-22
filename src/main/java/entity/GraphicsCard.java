@@ -61,4 +61,13 @@ public class GraphicsCard extends Device {
     public int hashCode() {
         return Objects.hash(super.hashCode(), graphicMemory, graphicMemoryBus, bandwidth);
     }
+
+    @Override
+    public String toString() {
+        return "GraphicsCard{" +
+                "graphicMemory=" + graphicMemory +
+                ", graphicMemoryBus=" + graphicMemoryBus +
+                ", bandwidth=" + bandwidth +
+                '}';
+    }
 }

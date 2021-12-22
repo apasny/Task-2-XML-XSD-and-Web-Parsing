@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
 @XmlSeeAlso({Cpu.class, GraphicsCard.class})
-public class Device {
+public abstract class Device {
 
     private String id;
     private String name;
@@ -79,5 +79,16 @@ public class Device {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, price, manufacturer, details);
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", details=" + details.toString() +
+                '}';
     }
 }

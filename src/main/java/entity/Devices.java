@@ -9,8 +9,8 @@ public class Devices {
 
     @XmlElements
             ({
-                    @XmlElement(name = "cpu", type = Cpu.class),
-                    @XmlElement(name = "graphicsCard", type = GraphicsCard.class)
+                    @XmlElement(name = "cpu", type = Cpu.class, namespace = "http://www.example.com/devices"),
+                    @XmlElement(name = "graphicsCard", type = GraphicsCard.class, namespace = "http://www.example.com/devices")
             })
     private List<Device> devicesList = null;
 
@@ -22,13 +22,11 @@ public class Devices {
     }
 
 
-    public List<Device> getListOfDevices()
-    {
+    public List<Device> getListOfDevices() {
         return devicesList;
     }
 
-    public void setListOfDevices(List<Device> listOfDevices)
-    {
+    public void setListOfDevices(List<Device> listOfDevices) {
         this.devicesList = listOfDevices;
     }
 

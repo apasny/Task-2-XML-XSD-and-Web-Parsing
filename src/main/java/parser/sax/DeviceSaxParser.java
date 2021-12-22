@@ -18,7 +18,8 @@ public class DeviceSaxParser implements Parser {
     private final DeviceErrorHandler deviceErrorHandler = new DeviceErrorHandler();
     private XMLReader xmlReader;
 
-    public DeviceSaxParser() {
+    public List<Device> parse(String filename) {
+
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
@@ -28,9 +29,7 @@ public class DeviceSaxParser implements Parser {
         }
         xmlReader.setContentHandler(deviceSaxHandler);
         xmlReader.setErrorHandler(deviceErrorHandler);
-    }
 
-    public List<Device> parse(String filename) {
         try {
             xmlReader.parse(filename);
         } catch (IOException | SAXException e) {

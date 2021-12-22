@@ -43,20 +43,20 @@ public class DeviceDomHandler {
                 Cpu currentCpu = new Cpu();
                 currentDevice = currentCpu;
                 int coresQuantity = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.CORESQUANTITY.getValue()));
-                double frequency = Double.parseDouble(getElementTextContent(element, DeviceXmlTag.FREQUENCY.getValue()));
-                int cache = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.CACHE.getValue()));
                 currentCpu.setCoresQuantity(coresQuantity);
+                double frequency = Double.parseDouble(getElementTextContent(element, DeviceXmlTag.FREQUENCY.getValue()));
                 currentCpu.setFrequency(frequency);
+                int cache = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.CACHE.getValue()));
                 currentCpu.setCache(cache);
                 break;
             case elementGraphicsCard:
                 GraphicsCard currentGraphicsCard = new GraphicsCard();
                 currentDevice = currentGraphicsCard;
                 int graphicMemory = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.GRAPHICMEMORY.getValue()));
-                int memoryBus = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.MEMORYBUS.getValue()));
-                int bandwidth = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.BANDWIDTH.getValue()));
                 currentGraphicsCard.setGraphicMemory(graphicMemory);
+                int memoryBus = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.MEMORYBUS.getValue()));
                 currentGraphicsCard.setGraphicMemoryBus(memoryBus);
+                int bandwidth = Integer.parseInt(getElementTextContent(element, DeviceXmlTag.BANDWIDTH.getValue()));
                 currentGraphicsCard.setBandwidth(bandwidth);
                 break;
         }
