@@ -23,7 +23,7 @@ public abstract class Device {
         this.details = details;
     }
 
-    @XmlElement(name = "details")
+    @XmlElement(name = "details", namespace = "http://www.example.com/devices")
     public Details getDetails() {
         return details;
     }
@@ -41,7 +41,7 @@ public abstract class Device {
         this.id = id;
     }
 
-    @XmlElement(name = "name")
+    @XmlElement(name = "name", namespace = "http://www.example.com/devices")
     public String getName() {
         return name;
     }
@@ -50,7 +50,7 @@ public abstract class Device {
         this.name = name;
     }
 
-    @XmlElement(name = "price")
+    @XmlElement(name = "price", namespace = "http://www.example.com/devices")
     public double getPrice() {
         return price;
     }
@@ -59,7 +59,7 @@ public abstract class Device {
         this.price = price;
     }
 
-    @XmlElement(name = "manufacturer")
+    @XmlElement(name = "manufacturer", namespace = "http://www.example.com/devices")
     public String getManufacturer() {
         return manufacturer;
     }
@@ -83,8 +83,7 @@ public abstract class Device {
 
     @Override
     public String toString() {
-        return "Device{" +
-                "id='" + id + '\'' +
+        return "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", manufacturer='" + manufacturer + '\'' +

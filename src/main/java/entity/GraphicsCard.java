@@ -1,9 +1,11 @@
 package entity;
 
+import com.sun.xml.txw2.annotation.XmlNamespace;
+
 import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
-@XmlType(name = "graphicsCard")
+@XmlRootElement(name = "graphicsCard", namespace = "http://www.example.com/devices")
 public class GraphicsCard extends Device {
 
     private int graphicMemory;
@@ -21,7 +23,7 @@ public class GraphicsCard extends Device {
         this.bandwidth = bandwidth;
     }
 
-    @XmlElement(name = "graphicMemory")
+    @XmlElement(name = "graphicMemory", namespace = "http://www.example.com/devices")
     public int getGraphicMemory() {
         return graphicMemory;
     }
@@ -30,7 +32,7 @@ public class GraphicsCard extends Device {
         this.graphicMemory = graphicMemory;
     }
 
-    @XmlElement(name = "memoryBus")
+    @XmlElement(name = "memoryBus", namespace = "http://www.example.com/devices")
     public int getGraphicMemoryBus() {
         return graphicMemoryBus;
     }
@@ -39,7 +41,7 @@ public class GraphicsCard extends Device {
         this.graphicMemoryBus = graphicMemoryBus;
     }
 
-    @XmlElement(name = "bandwidth")
+    @XmlElement(name = "bandwidth", namespace = "http://www.example.com/devices")
     public int getBandwidth() {
         return bandwidth;
     }
@@ -64,7 +66,7 @@ public class GraphicsCard extends Device {
 
     @Override
     public String toString() {
-        return "GraphicsCard{" +
+        return "GraphicsCard{" + super.toString()+
                 "graphicMemory=" + graphicMemory +
                 ", graphicMemoryBus=" + graphicMemoryBus +
                 ", bandwidth=" + bandwidth +

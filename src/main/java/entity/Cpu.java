@@ -3,7 +3,7 @@ package entity;
 import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
-@XmlType(name = "cpu")
+@XmlRootElement(name = "cpu", namespace = "http://www.example.com/devices")
 public class Cpu extends Device {
 
     private int coresQuantity;
@@ -21,7 +21,7 @@ public class Cpu extends Device {
         this.cache = cache;
     }
 
-    @XmlElement(name = "coresQuantity")
+    @XmlElement(name = "coresQuantity", namespace = "http://www.example.com/devices")
     public int getCoresQuantity() {
         return coresQuantity;
     }
@@ -30,7 +30,7 @@ public class Cpu extends Device {
         this.coresQuantity = coresQuantity;
     }
 
-    @XmlElement(name = "frequency")
+    @XmlElement(name = "frequency", namespace = "http://www.example.com/devices")
     public double getFrequency() {
         return frequency;
     }
@@ -39,7 +39,7 @@ public class Cpu extends Device {
         this.frequency = frequency;
     }
 
-    @XmlElement(name = "cache")
+    @XmlElement(name = "cache", namespace = "http://www.example.com/devices")
     public int getCache() {
         return cache;
     }
@@ -64,7 +64,7 @@ public class Cpu extends Device {
 
     @Override
     public String toString() {
-        return "Cpu{" +
+        return "Cpu{" + super.toString()+
                 "coresQuantity=" + coresQuantity +
                 ", frequency=" + frequency +
                 ", cache=" + cache +

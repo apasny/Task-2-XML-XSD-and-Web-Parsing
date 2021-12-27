@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class XmlValidator {
 
-    public boolean validate(String file) {
+    public boolean validate(String file) throws SAXException, IOException {
 
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         String xsdSchema = "src/test/resources/devices.xsd";
@@ -22,15 +22,11 @@ public class XmlValidator {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(xsdSchema);
 
-        try {
-            Schema schema = schemaFactory.newSchema(schemaLocation);
-            Validator validator = schema.newValidator();
-            Source source = new StreamSource(file);
-            validator.setErrorHandler(new DeviceErrorHandler());
-            validator.validate(source);
-        } catch (SAXException | IOException exception) {
-            exception.printStackTrace();
-        }
+        Schema schema = schemaFactory.newSchema(schemaLocation);
+        Validator validator = schema.newValidator();
+        Source source = new StreamSource(file);
+        validator.setErrorHandler(new DeviceErrorHandler());
+        validator.validate(source);
 
         return true;
     }

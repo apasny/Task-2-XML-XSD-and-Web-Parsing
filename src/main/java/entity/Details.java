@@ -3,8 +3,7 @@ package entity;
 import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
-@XmlType(name = "details")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "details", namespace = "http://www.example.com/devices")
 public class Details {
 
     private String serialNumber;
@@ -21,6 +20,7 @@ public class Details {
         this.releaseDate = releaseDate;
     }
 
+    @XmlElement(name = "serialNumber", namespace = "http://www.example.com/devices")
     public String getSerialNumber() {
         return serialNumber;
     }
@@ -29,6 +29,7 @@ public class Details {
         this.serialNumber = serialNumber;
     }
 
+    @XmlElement(name = "deviceID", namespace = "http://www.example.com/devices")
     public String getDeviceId() {
         return deviceId;
     }
@@ -37,6 +38,7 @@ public class Details {
         this.deviceId = deviceId;
     }
 
+    @XmlElement(name = "releaseDate", namespace = "http://www.example.com/devices")
     public int getReleaseDate() {
         return releaseDate;
     }

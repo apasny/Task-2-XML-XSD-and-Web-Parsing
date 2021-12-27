@@ -29,7 +29,7 @@ public class DeviceSaxHandler extends DefaultHandler {
     @Override
     public void startElement(String uri, String lName, String qName, Attributes attr) {
 
-        if (elementCpu.equals(qName) || elementGraphicsCard.equals(qName) || elementDevices.equals(qName) || elementDetails.equals(qName)) {
+        if (qName != null) {
 
             switch (qName) {
                 case elementCpu:
@@ -47,9 +47,10 @@ public class DeviceSaxHandler extends DefaultHandler {
                 case elementDetails:
                     currentDetails = new Details();
                     break;
+                default:
+                    currentXmlTag = DeviceXmlTag.valueOf(qName.toUpperCase(Locale.ROOT));
             }
-        } else {
-            currentXmlTag = DeviceXmlTag.valueOf(qName.toUpperCase(Locale.ROOT));
+
         }
     }
 

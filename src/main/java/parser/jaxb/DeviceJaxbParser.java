@@ -3,6 +3,7 @@ package parser.jaxb;
 import entity.Device;
 import parser.Parser;
 
+import javax.xml.bind.JAXBException;
 import java.util.List;
 
 public class DeviceJaxbParser implements Parser {
@@ -12,7 +13,13 @@ public class DeviceJaxbParser implements Parser {
     @Override
     public List<Device> parse(String file) {
 
-        return deviceJaxbHandler.getDevices(file);
+        try {
+            return deviceJaxbHandler.getDevices(file);
+        } catch (JAXBException exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
     }
 
 }

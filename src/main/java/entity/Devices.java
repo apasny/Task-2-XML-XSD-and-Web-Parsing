@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.*;
 import java.util.List;
 
 @XmlRootElement(name = "devices", namespace = "http://www.example.com/devices")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Cpu.class, GraphicsCard.class})
 public class Devices {
 
     @XmlElements
@@ -12,15 +12,15 @@ public class Devices {
                     @XmlElement(name = "cpu", type = Cpu.class, namespace = "http://www.example.com/devices"),
                     @XmlElement(name = "graphicsCard", type = GraphicsCard.class, namespace = "http://www.example.com/devices")
             })
-    private List<Device> devicesList = null;
+    private List<Device> devicesList;
 
-    public Devices() {
+    public Devices(){
+
     }
 
     public Devices(List<Device> vehicleCollection) {
         this.devicesList = vehicleCollection;
     }
-
 
     public List<Device> getListOfDevices() {
         return devicesList;
