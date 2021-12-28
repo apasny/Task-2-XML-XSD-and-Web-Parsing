@@ -28,4 +28,30 @@
             <releaseDate>2018</releaseDate>
         </details>
     </graphicsCard>
+    <graphicsCard id="ID45">
+        <name>rtx 2080</name>
+        <price>652</price>
+        <manufacturer>Nvidia</manufacturer>
+        <graphicMemory>12</graphicMemory>
+        <memoryBus>192</memoryBus>
+        <bandwidth>306</bandwidth>
+        <details>
+            <serialNumber>f65q41fq</serialNumber>
+            <deviceID>dq6-fqwf1-qw55</deviceID>
+            <releaseDate>2018</releaseDate>
+        </details>
+    </graphicsCard>
+    <cpu id="ID124">
+        <name>i7</name>
+        <price>194</price>
+        <manufacturer>Intel</manufacturer>
+        <coresQuantity>6</coresQuantity>
+        <frequency>4.2</frequency>
+        <cache>32</cache>
+        <details>
+            <serialNumber>23145waddwa68746aw1</serialNumber>
+            <deviceID>132w77-wda42aw-awd251</deviceID>
+            <releaseDate>2019</releaseDate>
+        </details>
+    </cpu>
 </devices>
